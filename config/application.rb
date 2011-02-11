@@ -5,7 +5,7 @@ require File.expand_path('../boot', __FILE__)
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
-require "rails/test_unit/railtie"
+require "mongoid/railtie"
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -43,5 +43,12 @@ module Credibles
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.generators do |g|
+      g.orm :mongoid
+      g.test_framework :rspec
+      g.integration_tool :rspec
+      g.template_engine :haml
+    end
   end
 end
