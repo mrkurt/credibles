@@ -1,6 +1,20 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.4'
+gem 'haml', '>= 3.1.alpha.50'
+gem 'compass', '0.11.beta.2'
+
+gem 'mongo', '1.2.1'
+gem 'bson_ext', '1.2.1'
+gem 'mongoid', '2.0.0.rc.7'
+
+gem 'loofah'
+
+gem 'hoptoad_notifier'
+
+group :development, :test do
+  gem 'rspec-rails'
+end
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
