@@ -7,8 +7,12 @@ gem 'compass', '0.11.beta.2'
 gem 'mongo', '1.2.1'
 gem 'bson_ext', '1.2.1'
 gem 'mongoid', '2.0.0.rc.7'
+gem 'beanstalk-client'
 
 gem 'loofah'
+gem 'text'
+
+gem 'omniauth'
 
 gem 'hoptoad_notifier'
 
