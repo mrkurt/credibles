@@ -1,0 +1,33 @@
+=content_for :frame_type do
+  dialog
+
+=form_for @edit, :html => {:class => 'primary'} do |f|
+  =hidden_field_tag 'view', params[:view] if params[:view]
+  =hidden_field_tag 'url', params[:url] if params[:url]
+  =hidden_field_tag 'account_id', params[:account_id]
+  =hidden_field_tag 'page_id', current_page.id
+  =f.hidden_field :url
+  -@edit.suggestions.each do |suggestion|
+    =fields_for 'suggestion[]', suggestion do |f|
+      =f.hidden_field :element_path
+      =f.hidden_field :original
+      %p.field.first
+        %label
+          What should this say?
+          =f.text_area :proposed
+  %p.field
+    %label
+      Comments (optional)
+      =f.text_area :comments, :class => 'comments'
+  %p.field
+    %label
+      Your email
+      =f.text_field :email
+    %label
+      = f.check_box(:opt_in)
+      Want the newsletter?
+    %span.hint
+      * We will send you email notifications when editors accept or reject your recommended changes.
+  %p.options
+    %input{:type => 'button', :value => 'Cancel', :class => 'close secondary'}
+    =f.submit 'Submit Changes'

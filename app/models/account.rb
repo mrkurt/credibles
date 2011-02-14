@@ -7,4 +7,10 @@ class Account
 
   field :hosts, :type => Array
   index :hosts, :unique => true
+
+  field :key
+  index :key, :unique => true
+  before_validation do
+    self.key = id.to_s if key.blank?
+  end
 end

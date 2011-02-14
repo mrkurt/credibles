@@ -1,0 +1,204 @@
+@import 'compass/css3/gradient';
+@import 'compass/css3/text-shadow';
+@import 'compass/css3/box-shadow';
+@import 'compass/css3/inline-block';
+@import 'compass/css3/border-radius';
+$default-border-radius: 5px;
+body{
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  line-height: 140%;
+  padding: 0px;
+  margin: 0px;
+  background-color: #f6f6f6;
+  color: #000;
+}
+
+#content{ max-height: 250px; overflow: auto; width: 100%; }
+
+.button, input[type=submit], input[type=button]{
+  border: 0px;
+  margin: 0px;
+  color: white;
+  font-size: 12px;
+  padding: 5px 12px;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  @include border-radius(5px);
+  @include text-shadow(#1067ae);
+  @include inline-block;
+  background-color: #50a4d0;
+  @include linear-gradient(color-stops(#50a4d0, #126baf));
+  @include box-shadow(#000, 0, 1px, 1px);
+  cursor: pointer;
+  
+  &.secondary{
+    background-color: #777;
+    @include linear-gradient(color-stops(#999, #777));
+    @include text-shadow(#444);
+  }
+
+  &:hover{
+    color: #FF9;
+  }
+}
+
+.error, .success{
+  margin: 10px;
+  padding: 5px;
+  font-weight: bold;
+}
+.error{
+  border: 1px solid red;
+  background: mix(#fff, red, 80%);
+}
+.success{
+  border: 1px solid green;
+  background: mix(#fff, green, 80%);
+}
+p, h1, h2, h3, h4{ 
+  margin: 10px;
+  padding: 0px;
+}
+p.hint{
+  margin: 0px 10px;
+}
+
+textarea{
+  display: block;
+  margin: 0px auto;
+  width: 90%;
+  height: 150px;
+}
+p.options{
+  text-align: right;
+  input[value=Done]{ font-weight: bold; }
+  position: relative;
+
+  label{
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+  }
+}
+form{
+  width: 400px;
+  margin: 0;
+  padding: 10px;
+  
+  textarea{
+    width: 392px;
+    height: 100px;
+    background-color: #fff;
+    @include linear-gradient(color-stops(#ddd 0%, #fff 2%, #fff));
+    display: block;
+    resize: none;
+    &.comments{ height: 50px; }
+  }
+  textarea, input[type=text]{
+    border: 1px solid #999;
+    @include border-radius(3px);
+    padding: 3px;
+  }
+  input[type=text]{
+    margin: 0;
+    background-color: #fff;
+    @include linear-gradient(color-stops(#ddd 0%, #fff 10%, #fff));
+  }
+
+  p{
+    margin: 10px 0px;
+    text-align: right;
+    label{
+      font-weight: bold;
+    }
+    input{
+      margin: 0;
+    }
+    &.field{
+      text-align: left;
+      input[type=text]{ width: 140px; margin-right: 15px; }
+      padding-left: 5px;
+      line-height: 140%;
+      padding: 5px 0;
+      .hint{
+        font-size: 100%;
+        color: #555;
+        display: block;
+        padding-top: 5px;
+      }
+
+      &.first{ margin-top: 0px; padding-top: 0px; }
+    }
+    &.options{
+      margin-bottom: 0px;
+    }
+  }
+  input[type=submit]{ font-weight: bold; }
+}
+
+.hint{
+  color: #666;
+  font-size: 80%;
+}
+
+h2.edits{
+  padding: 10px;
+  padding-left: 10px;
+  padding-bottom: 0px;
+  margin: 0;
+  font-size: 120%;
+}
+.code{
+  font-family: monospace;
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  max-height: 300px;
+  overflow: auto;
+}
+table.edits{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  td{
+    margin: 0;
+    padding: 3px;
+    background-color: #fff;
+  }
+  p.hint{
+    margin: 0; padding: 0;
+    padding-top: 3px;
+  }
+  .preview{ text-align: center; }
+  .title{ 
+    text-align: left; 
+    padding-left: 10px; 
+
+    .editor-options{
+      float: right;
+      margin: 0; padding: 0;
+      width: auto;
+    }
+    p.accept, p.reject{
+      line-height: 100%;
+      white-space: nowrap;
+      margin: 0; padding: 0;
+      padding: 5px;
+      font-size: 80%;
+      font-weight: bold;
+      text-align: left;
+    
+      input{ height: 10px; width: 10px; margin: 0; vertical-align: baseline; }
+    }
+
+    p.accept{ background-color: #EFE; color: #060; }
+    p.reject{ background-color: #FEE; color: #600; }
+  }
+  
+  a{ color: #888;}
+}

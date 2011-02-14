@@ -1,0 +1,2 @@
+alert('test');
+yay = 'boo';

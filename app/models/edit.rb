@@ -8,6 +8,8 @@ class Edit
   referenced_in :account
 
   #user fields
+  field :email
+  field :opt_in, :type => Boolean, :default => false
   field :url
   field :ip_address
   embeds_many :suggestions, :class_name => 'Edit::Suggestion', :inverse_of => :edit
@@ -25,9 +27,20 @@ class Edit
     self.key = ActiveSupport::SecureRandom.hex(6) if key.blank?
   end
 
-  def has_suggestions?
+  before_save do
     suggestions.select(&:is_unchanged?).each(&:destroy)
-    suggestions.length > 0
+  end
+
+  def has_suggestions?
+    suggestions.reject(&:is_unchanged?).length > 0
+  end
+
+  def add_suggestions(params)
+    params = [params] unless params.is_a?(Array)
+    params.each do |p|
+      self.suggestions << Edit::Suggestion.new(p)
+    end
+    self.suggestions
   end
 
   class Suggestion

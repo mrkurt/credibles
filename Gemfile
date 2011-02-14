@@ -2,7 +2,15 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.4'
 gem 'haml', '>= 3.1.alpha.50'
+gem 'haml-rails'
 gem 'compass', '0.11.beta.2'
+
+gem 'tilt'
+gem 'coffee-script'
+gem 'sprockets', :git => 'https://github.com/sstephenson/sprockets.git', :branch => 'v2'
+gem 'uglifier'
+
+gem 'cloudseed'
 
 gem 'mongo', '1.2.1'
 gem 'bson_ext', '1.2.1'
