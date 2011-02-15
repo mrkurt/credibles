@@ -28,6 +28,10 @@ gem 'hoptoad_notifier'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'steak'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'spork', '~> 0.9.0.rc'
 end
 
 # Bundle edge Rails instead:

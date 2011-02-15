@@ -7,4 +7,5 @@ describe Edit do
 
     e.comments.should_not include('<script>')
   end
+
 end

@@ -23,4 +23,5 @@ class EditsController < ApplicationController
     @edit = Edit.find(params[:id])
     render :layout => 'framed'
   end
+
 end
