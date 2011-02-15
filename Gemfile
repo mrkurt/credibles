@@ -8,15 +8,17 @@ gem 'compass', '0.11.beta.2'
 gem 'tilt'
 gem 'coffee-script'
 gem 'sprockets', :git => 'https://github.com/sstephenson/sprockets.git', :branch => 'v2'
-gem 'uglifier'
 
+#middleware
 gem 'cloudseed'
 
+#data stuff
 gem 'mongo', '1.2.1'
 gem 'bson_ext', '1.2.1'
 gem 'mongoid', '2.0.0.rc.7'
 gem 'beanstalk-client'
 
+#text processing
 gem 'loofah'
 gem 'text'
 

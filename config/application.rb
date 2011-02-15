@@ -51,6 +51,6 @@ module Credibles
       g.template_engine :haml
     end
 
-    config.middleware.use 'CloudSeed::Middleware'
+    config.middleware.insert_before ActionDispatch::Static, CloudSeed::Middleware
   end
 end
