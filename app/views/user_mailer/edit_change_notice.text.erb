@@ -1,0 +1,11 @@
+<% if @status_changes.is_a?(Array) %>
+Your proposed edit has been changed from "<%=raw @status_changes.first%>" to "<%=raw @status_changes.last%>".
+<% end %>
+
+Proposed changes:
+<%=raw diff_edit_text(diff_edit_context @edit, false) %>
+
+<% unless @editor_notes.blank? %>
+Comments:
+<%=raw @editor_notes %>
+<% end %>

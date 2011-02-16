@@ -13,10 +13,10 @@ gem 'sprockets', :git => 'https://github.com/sstephenson/sprockets.git', :branch
 gem 'cloudseed'
 
 #data stuff
-gem 'mongo', '1.2.1'
-gem 'bson_ext', '1.2.1'
+gem 'mongo', '1.2.2'
+gem 'bson_ext', '1.2.2'
 gem 'mongoid', '2.0.0.rc.7'
-gem 'beanstalk-client'
+gem 'resque'
 
 #text processing
 gem 'loofah'
@@ -30,8 +30,13 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'steak'
   gem 'capybara'
-  gem 'guard-rspec'
+end
+
+group :development do
   gem 'spork', '~> 0.9.0.rc'
+
+  gem 'guard-rspec'
+  gem 'guard-spork'
 end
 
 # Bundle edge Rails instead:

@@ -5,7 +5,10 @@ class Edit
   include XssFoliate
 
   referenced_in :page
+  index :page_id
+
   referenced_in :account
+  index :account_id
 
   #user fields
   field :email
@@ -29,6 +32,17 @@ class Edit
 
   before_save do
     suggestions.select(&:is_unchanged?).each(&:destroy)
+  end
+
+  after_create do
+    Resque.enqueue(EditWorker, 'create', self.id)
+  end
+
+  after_save do
+    c = previous_changes
+    status = c['status']
+    msg = c['editor_notes'].last if c['editor_notes'].is_a?(Array)
+    Resque.enqueue(EditWorker, 'change', self.id, status, msg) if status || msg
   end
 
   def has_suggestions?

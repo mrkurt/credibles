@@ -1,0 +1,13 @@
+<%= raw ((@edit.email.blank? && '(Anonymous)') || @edit.email) %> just submitted a correction for one of your pages:
+<%= raw @edit.url + '#copypasta-auto' %>
+
+Changes:
+<%= raw diff_edit_text(diff_edit_context @edit, false) %>
+
+Comments from user:
+<%= raw @edit.comments %>
+
+<% unless @edit.page.account.edit_url_format.blank? %>
+Edit link:
+<%= raw @edit.page.account.edit_url_format.gsub('{{key}}', @edit.page.key) %>
+<% end %>

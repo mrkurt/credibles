@@ -5,8 +5,11 @@ class Account
   references_many :pages
   references_many :edits
 
-  field :hosts, :type => Array
+  field :hosts, :type => Array, :default => []
   index :hosts, :unique => true
+
+  field :editors, :type => Array, :default => []
+  field :owner_email
 
   field :key
   index :key, :unique => true

@@ -8,4 +8,10 @@ describe Edit do
     e.comments.should_not include('<script>')
   end
 
+  it "should add a notification job on create" do
+    
+  end
+
+  it "should add a notification job on change" do
+  end
 end

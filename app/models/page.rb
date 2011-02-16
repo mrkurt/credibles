@@ -3,7 +3,9 @@ class Page
   include Mongoid::Timestamps
 
   references_many :edits
+
   referenced_in :account
+  index:account_id
 
   field :key
   field :url

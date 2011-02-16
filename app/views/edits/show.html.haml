@@ -1,1 +1,11 @@
-%p!= diff_edit
+=content_for :frame_type do
+  dialog
+
+.success Your edit has been submitted for approval
+#edit-create-success
+  %p.code!= diff_edit
+  -if @edit.comments?
+    %h4 Comments
+    %p= @edit.comments
+  %p.options
+    %input{:type => 'button', :class => 'close', :value => 'Done'}

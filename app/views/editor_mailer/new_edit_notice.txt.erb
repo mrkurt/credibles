@@ -1,0 +1,8 @@
+<%=edit_author %> just submitted a correction for one of your pages:
+<%= @edit.url %>
+
+Proposed changes:
+<%= @edit.proposed %>
+
+Manage edits for this page:
+<%= new_session_url(:key => @editor.create_token.key, :url => @edit.url_with_edits) %>

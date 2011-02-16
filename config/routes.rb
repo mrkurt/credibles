@@ -1,9 +1,12 @@
+require 'resque/server'
 Credibles::Application.routes.draw do
   s_env = Sprockets::Environment.new
   s_env.paths << 'server'
   sprockets = Sprockets::Server.new(s_env)
   match 'javascripts/:file' => sprockets
   match 'stylesheets/:file' => sprockets
+  
+  match '/resque/*params', :to => Rack::URLMap.new("/resque" => Resque::Server.new)
 
   resources :edits
 
