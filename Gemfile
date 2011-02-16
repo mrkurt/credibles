@@ -30,6 +30,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'steak'
   gem 'capybara'
+  gem 'fabrication'
 end
 
 group :development do

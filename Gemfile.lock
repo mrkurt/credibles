@@ -69,6 +69,7 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    fabrication (0.9.5)
     faraday (0.5.5)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
@@ -238,6 +239,7 @@ DEPENDENCIES
   cloudseed
   coffee-script
   compass (= 0.11.beta.2)
+  fabrication
   guard-rspec
   guard-spork
   haml (>= 3.1.alpha.50)

@@ -46,7 +46,8 @@ module Credibles
 
     config.generators do |g|
       g.orm :mongoid
-      g.test_framework :rspec
+      g.test_framework :rspec, :fixture => true
+      g.fixture_replacement :fabrication
       g.integration_tool :rspec
       g.template_engine :haml
     end
