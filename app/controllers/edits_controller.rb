@@ -7,7 +7,7 @@ class EditsController < ApplicationController
   end
 
   def create
-    @edit = current_account.edits.new(params[:edit])
+    @edit = current_page.edits.new(params[:edit])
     @edit.ip_address = request.remote_ip
     @edit.add_suggestions(params[:suggestion])
 

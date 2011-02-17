@@ -1,0 +1,156 @@
+@import 'compass/reset';
+@import 'compass/css3/gradient';
+@import 'compass/css3/text-shadow';
+@import 'compass/css3/box-shadow';
+@import 'compass/css3/inline-block';
+@import 'compass/css3/border-radius';
+$default-border-radius: 5px;
+body{
+  background: #1E3957 url('../../images/bkg-texture.jpg');
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 140%;
+}
+em{ font-style: italic; }
+#edit-preview{
+  text-decoration: underline;
+  cursor: pointer;
+  color: #1067ae;
+
+  .copy-pasta-active &{ display: none; }
+}
+strong{ font-weight: bold; }
+.good{ background: #AFA; }
+.bad { background: #FAA; }
+#logo{
+  background: url('../../images/logo.png') top left no-repeat;
+  padding: 0;
+  margin: 0px auto;
+  z-index: 2;
+  position: relative;
+  width: 530px; height: 155px;
+  span{ display: none; }
+}
+#container{
+  width: 600px;
+  margin: 30px auto;
+  @include border-radius;
+}
+#content{
+  background-color: #f6f6f6;
+  position: relative;
+  z-index: 1;
+  top: -50px;
+  padding: 50px;
+  padding-bottom: 10px;
+  @include border-radius;
+}
+
+h4, h5{
+  font-weight: bold;
+}
+.instructions{
+  text-align: justify;
+}
+#signup{
+  margin: 20px auto;
+  width: 400px;
+
+  #editor_email{
+    width: 386px;
+    @include border-radius;
+  }
+}
+textarea, input[type=text]{
+  border: 1px solid #999;
+  @include border-radius(3px);
+  padding: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+}
+textarea{
+  width: 486px;
+  height: 150px;
+  margin-top: 10px;
+}
+#code{
+  font-family: monospace;
+  font-size: 0.8125em;
+}
+input[type=text]{
+  margin: 0;
+  background-color: #fff;
+  @include linear-gradient(color-stops(#ddd 0%, #fff 10%, #fff));
+  
+  .field_with_errors &{
+    border-color: #C99;
+    @include linear-gradient(color-stops(#fcc 0%, #fff 10%, #fff));
+  }
+}
+
+.options{ margin-top: 15px; text-align: right; }
+.advanced{
+  padding: 20px;
+  border: 1px solid #eee;
+  background-color: #fff;
+  margin-top: 20px;
+  font-size: 0.8125em;
+  .instructions{ margin: 10px 0px; }
+  code{ font-weight: bold; }
+}
+code{ font-family: monospace; }
+.instructions{ margin: 10px auto; }
+
+.button, input[type=submit], input[type=button]{
+  border: 0px;
+  margin: 0px;
+  color: white;
+  font-size: 12px;
+  padding: 5px 12px;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  @include border-radius(5px);
+  @include text-shadow(#1067ae);
+  @include inline-block;
+  background-color: #50a4d0;
+  @include linear-gradient(color-stops(#50a4d0, #126baf));
+  @include box-shadow(#000, 0, 1px, 1px);
+  cursor: pointer;
+  
+  &.secondary{
+    background-color: #777;
+    @include linear-gradient(color-stops(#999, #777));
+    @include text-shadow(#444);
+  }
+
+  &:hover{
+    color: #FF9;
+  }
+}
+
+.error, .success{
+  margin: 10px 0px;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 0.8125em;
+}
+.error{
+  border: 1px solid red;
+  background: mix(#fff, red, 80%);
+}
+.success{
+  border: 1px solid green;
+  background: mix(#fff, green, 80%);
+}
+#copy-pasta-button{
+  width: 136px;
+  height: 20px;
+  margin: 0px auto;
+  z-index: 1;
+  position: relative;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-top: 30px;
+}

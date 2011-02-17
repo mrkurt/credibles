@@ -8,6 +8,7 @@ Credibles::Application.routes.draw do
   
   match '/resque/*params', :to => Rack::URLMap.new("/resque" => Resque::Server.new)
 
+  resources :pages
   resources :edits
 
   # The priority is based upon order of creation:

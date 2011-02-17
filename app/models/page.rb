@@ -3,14 +3,15 @@ class Page
   include Mongoid::Timestamps
 
   references_many :edits
-
   referenced_in :account
+
   index :account_id
-
   field :key
-  field :url
-
   key :account_id, :key
+
+  field :url
+  field :meta, :type => Hash, :default => {}
+
 
   def self.find_or_create(account, key, url)
     p = account.pages.new(:key => key, :url => url)
