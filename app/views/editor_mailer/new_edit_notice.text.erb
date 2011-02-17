@@ -1,8 +1,13 @@
 <%= raw ((@edit.email.blank? && '(Anonymous)') || @edit.email) %> just submitted a correction for one of your pages:
 <%= raw @edit.url + '#copypasta-auto' %>
 
-Changes:
-<%= raw diff_edit_text(diff_edit_context @edit, false) %>
+<% @edit.suggestions.each do |s| %>
+Proposed:
+<%= raw diff_text(diff_after(s, false)) %>
+
+Original:
+<%= raw diff_text(diff_before(s, false)) %>
+<% end %>
 
 Comments from user:
 <%= raw @edit.comments %>

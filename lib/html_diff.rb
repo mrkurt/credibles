@@ -313,9 +313,7 @@ module HTMLDiff
     DiffBuilder.new(a, b).build
   end
 
-  def diff_in_context(a, b)
-    d = diff(a,b)
-
+  def diff_in_context(d)
     first = original_length = d.length
     last = 0
 

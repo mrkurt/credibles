@@ -12,6 +12,7 @@ class EditsController < ApplicationController
     @edit.add_suggestions(params[:suggestion])
 
     if @edit.save
+      flash[:success] = "Your edit has been submitted for approval"
       redirect_to @edit
     else
       @errors = @edit.errors

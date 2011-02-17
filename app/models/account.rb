@@ -10,6 +10,7 @@ class Account
 
   field :editors, :type => Array, :default => []
   field :owner_email
+  field :edit_url_format
 
   field :key
   index :key, :unique => true

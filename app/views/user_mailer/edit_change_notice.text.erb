@@ -2,8 +2,13 @@
 Your proposed edit has been changed from "<%=raw @status_changes.first%>" to "<%=raw @status_changes.last%>".
 <% end %>
 
-Proposed changes:
-<%=raw diff_edit_text(diff_edit_context @edit, false) %>
+<% @edit.suggestions.each do |s| %>
+Proposed:
+<%= raw diff_text(diff_after(s, false)) %>
+
+Original:
+<%= raw diff_text(diff_before(s, false)) %>
+<% end %>
 
 <% unless @editor_notes.blank? %>
 Comments:

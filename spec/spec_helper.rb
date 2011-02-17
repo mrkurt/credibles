@@ -36,5 +36,5 @@ Spork.prefork do
 end
 
 Spork.each_run do
-
+  Resque.redis.keys('*').each{|k| Resque.redis.del k}
 end

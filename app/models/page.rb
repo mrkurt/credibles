@@ -5,7 +5,7 @@ class Page
   references_many :edits
 
   referenced_in :account
-  index:account_id
+  index :account_id
 
   field :key
   field :url
