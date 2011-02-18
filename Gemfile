@@ -8,7 +8,6 @@ gem 'haml-rails'
 gem 'tilt'
 gem 'coffee-script'
 gem 'sprockets', :git => 'https://github.com/sstephenson/sprockets.git', :branch => 'v2'
-gem 'hork'
 
 #middleware
 gem 'cloudseed'
