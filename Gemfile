@@ -6,6 +6,7 @@ gem 'haml-rails'
 #gem 'compass', '0.11.beta.2'
 
 gem 'tilt'
+gem 'therubyracer-heroku', '0.8.1.pre3'
 gem 'coffee-script'
 gem 'sprockets', :git => 'https://github.com/sstephenson/sprockets.git', :branch => 'v2'
 
