@@ -1,5 +1,5 @@
 Fabricator(:edit) do
-  page Fabricate(:page)
+  page { Fabricate(:page) }
   email { Fabricate.sequence(:email) { |i| "test-user-#{i}@example.com" } }
   ip_address '127.0.0.1'
   url 'http://localhost'
