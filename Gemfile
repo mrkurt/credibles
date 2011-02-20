@@ -34,10 +34,10 @@ group :development, :test do
 end
 
 group :development do
-  #gem 'spork', '~> 0.9.0.rc'
+  gem 'spork', '~> 0.9.0.rc'
 
-  #gem 'guard-rspec'
-  #gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'guard-spork'
 end
 
 # Bundle edge Rails instead:
