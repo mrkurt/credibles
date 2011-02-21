@@ -1,2 +1,0 @@
-alert('test');
-yay = 'boo';
