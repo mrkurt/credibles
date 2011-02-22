@@ -4,10 +4,7 @@ gem 'rails', '3.0.4'
 
 gem 'haml', '>= 3.1.alpha.50'
 gem 'haml-rails'
-gem 'compass', '0.11.beta.2'
-gem 'barista', '~> 1.0'
 gem 'sprockets', :git => 'https://github.com/sstephenson/sprockets.git', :branch => 'v2'
-gem 'asset_tasks'
 
 #middleware
 gem 'cloudseed'
@@ -27,6 +24,11 @@ gem 'omniauth'
 gem 'hoptoad_notifier'
 
 group :development, :test do
+  gem 'compass', '0.11.beta.2'
+  gem 'barista', '~> 1.0'
+  gem 'asset_tasks'
+  gem 'therubyracer'
+  gem 'coffee-script'
   gem 'rspec-rails'
   gem 'steak'
   gem 'capybara'
