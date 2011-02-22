@@ -18,7 +18,7 @@ namespace :credibles do
     puts "Committing changes..."
     system 'git commit -m "Updating compiled assets" || echo "No asset changes"'
     puts "Pushing..."
-    system 'git push heroku master'
+    system 'git push heroku staging:master'
 
     puts "Switching back to master..."
     system 'git checkout master'
