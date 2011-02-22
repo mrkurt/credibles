@@ -1,4 +1,4 @@
-if defined?(Barista)
+if Module.const_defined?(:Barista)
   # Configure barista.
   Barista.configure do |c|
     
