@@ -2,7 +2,7 @@ w = window
 return unless w.postMessage
 
 append_to_element = (e for e in document.documentElement.childNodes when e.nodeType == 1)[0]
-iframe_host = "http://localhost:3000"
+iframe_host = "<%= 'beer' %>http://localhost:3000"
 static_host = "http://localhost:3000"
 css = document.createElement('link')
 css.rel = "stylesheet"

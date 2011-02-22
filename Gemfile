@@ -1,10 +1,13 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.4'
+
 gem 'haml', '>= 3.1.alpha.50'
 gem 'haml-rails'
 gem 'compass', '0.11.beta.2'
 gem 'barista', '~> 1.0'
+gem 'sprockets', :git => 'https://github.com/sstephenson/sprockets.git', :branch => 'v2'
+gem 'asset_tasks'
 
 #middleware
 gem 'cloudseed'
