@@ -10,6 +10,8 @@ namespace :credibles do
     system 'git remote add heroku git@heroku.com:credibles.git || echo "remote exists"'
     puts "Pulling down heroku changes...\n"
     system 'git pull heroku master'
+    puts "Merging in new changes...\n"
+    system 'git merge master'
   end
   task :push_heroku do
     puts "Adding changed files..."
