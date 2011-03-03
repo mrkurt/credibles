@@ -18,7 +18,8 @@ module Credibles
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths += %W(#{config.root}/app/workers #{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/app/workers)
+    config.autoload_paths += %W(#{config.root}/app/middleware #{config.root}/lib)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -53,5 +54,10 @@ module Credibles
     end
 
     config.middleware.insert_before ActionDispatch::Static, CloudSeed::Middleware
+    config.middleware.insert_after ActionDispatch::Static, 'SprocketsMiddleware'
+
+    config.action_controller.asset_path = proc { |asset_path|
+      SprocketsMiddleware.version_stamp(asset_path)
+    }
   end
 end
