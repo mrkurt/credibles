@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
+gem 'rails', '3.0.5'
 
-gem 'haml', '>= 3.1.alpha.50'
+gem 'haml', '>= 3.1.alpha.147'
 gem 'haml-rails'
 gem 'sprockets', :git => 'https://github.com/sstephenson/sprockets.git', :branch => 'v2'
 gem 'coffee-script'
@@ -13,8 +13,7 @@ gem 'compass', '0.11.beta.2'
 gem 'cloudseed'
 
 #data stuff
-gem 'mongo', '1.2.2'
-gem 'bson_ext', '1.2.2'
+gem 'bson_ext', '>= 1.2.4'
 gem 'mongoid', '2.0.0.rc.7'
 gem 'resque'
 
@@ -34,6 +33,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'wirble'
   gem 'spork', '~> 0.9.0.rc'
 
   gem 'guard-rspec'
