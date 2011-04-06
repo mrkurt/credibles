@@ -12,7 +12,9 @@ Original:
 Comments from user:
 <%= raw @edit.comments %>
 
+Manage page edits: <%= new_session_url(:key => @token.key, :url => page_url(@edit.page)) %>
+
 <% unless @edit.page.account.edit_url_format.blank? %>
-Edit link:
+Edit page:
 <%= raw @edit.page.account.edit_url_format.gsub('{{key}}', @edit.page.key) %>
 <% end %>

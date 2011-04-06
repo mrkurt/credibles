@@ -1,0 +1,48 @@
+@import 'compass/css3';
+table#edits{
+  border-collapse: collapse;
+  width: 500px;
+
+  .wide &{ width: 890px; }
+
+  th{ background-color: #eee; font-weight: bold; }
+  th,td{ 
+    font-size: 0.8125em;
+    padding: 3px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+  }
+  td.status label{
+    display: block;
+    white-space: nowrap;
+  }
+  .changes hr{
+    background-color: #ddd;
+    height: 1px;
+    border: 0px;
+  }
+  .code{
+    font-family: monospace;
+    max-height: 300px;
+    overflow: auto;
+  }
+  tr.loading{
+    @include opacity(0.2);
+
+    td.status{
+      background: transparent url(../images/loading.gif) center center no-repeat;
+    }
+  }
+}
+
+p.options{
+  margin-top: 5px;
+}
+p.options.left{
+  float: left;
+}
+p.options.right{
+  text-align: right;
+}
+ins{ background-color: #AFA; }
+del{ background-color: #FAA; }

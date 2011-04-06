@@ -1,0 +1,21 @@
+%tr{:id => "edit-#{row.id}"}
+  -if params[:batch]
+    %td.js
+      %input.edit-selector{:type => 'checkbox'}
+  %td= row.email
+  %td.changes
+    -row.suggestions.each do |s|
+      .code.ins!= diff_after(s)
+      %hr
+      .code.del!= diff_before(s)
+  %td= row.comments
+  %td.status
+    -if editor_for?(row)
+      =form_for row, :html => {:class => 'embed edit-row'} do |f|
+        -Edit::EDIT_STATUS_OPTIONS.each do |o|
+          %label{:class => o}
+            =f.radio_button :status, o, :class => 'auto'
+            =o.humanize
+        =f.submit "Save", :class => 'no-js'
+    -else
+      =row.status.humanize

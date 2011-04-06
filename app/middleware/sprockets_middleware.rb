@@ -4,15 +4,15 @@ class SprocketsMiddleware
   class << self
     def environment
       @environment ||= Sprockets::Environment.new.tap do |e|
-        e.paths.push 'server'
+        e.paths.push 'server', 'vendor'
+        #e.logger = Rails.logger
       end
-    end
-    
-    def server
-      @server ||= Sprockets::Server.new(environment)
     end
 
     def version_stamp(asset_path)
+      if Rails.env == 'development'
+        environment.instance_variable_set('@cache', {})
+      end
       a = environment.find_asset(asset_path)
       if a
         asset_path = "#{asset_path}?#{a.digest}"
@@ -28,7 +28,12 @@ class SprocketsMiddleware
 
   def call(env)
     if is_asset?(env['PATH_INFO'])
-      self.class.server.call(env)
+      if Rails.env == 'development'
+        self.class.environment.instance_variable_set('@cache', {})
+      end
+      results = self.class.environment.call(env)
+      Rails.logger.info "Served #{env['PATH_INFO']} with Sprockets (#{results.first})"
+      results
     else
       app.call(env)
     end

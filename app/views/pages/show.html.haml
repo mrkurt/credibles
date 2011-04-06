@@ -1,3 +1,14 @@
-%ul
-  -@page.edits.each do |e|
-    %li= link_to e.distance, e
+%table#edits
+  %thead
+    %tr
+      -if params[:batch]
+        %th.js
+          %input#select-all-edits{:type => 'checkbox'}
+      %th From
+      %th Changes
+      %th Comments
+      %th Status
+  %tbody= render :partial => 'edits/row', :collection => @edits
+
+-content_for :page_type do
+  wide

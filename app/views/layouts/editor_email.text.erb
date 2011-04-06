@@ -1,9 +1,4 @@
 <%=yield%>
 
 ***copypasta instructions***
-Responses to this email will be sent to the submitter.
-Everything below these instructions will be stripped out.
-To change the status of this edit, put an x between the brackets:
-Current status: <%= @edit.status %>
-[  ] accept
-[  ] reject
+Manage page edits: <%= new_session_url(:key => @token.key, :url => page_url(@edit.page)) %>

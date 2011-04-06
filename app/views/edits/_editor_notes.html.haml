@@ -1,0 +1,13 @@
+=form_for @edit do |f|
+  %p
+    =f.hidden_field :status
+    %label
+      =f.label :editor_notes, 'Notes for user?'
+      =f.text_area :editor_notes, :value => (params[:edit][:editor_notes] || '')
+  %p.options.left
+    =f.submit "Save notes"
+=form_for @edit do |f|
+  %p.options.right
+    =f.hidden_field :status
+    =f.hidden_field :editor_notes
+    =f.submit "Skip notes", :class => 'secondary'

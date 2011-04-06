@@ -36,5 +36,6 @@ Spork.prefork do
 end
 
 Spork.each_run do
+  ::Mongoid.database.collections.select { |c| c.name !~ /^system/ }.each { |c| c.remove(:safe => true) }
   Resque.redis.keys('*').each{|k| Resque.redis.del k}
 end

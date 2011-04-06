@@ -13,6 +13,7 @@ development:
 test:
   <<: *defaults
   database: credibles_test
+  #autocreate_indexes: true
 
 # set these environment variables on your prod server
 production:

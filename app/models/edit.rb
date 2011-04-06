@@ -1,4 +1,5 @@
 class Edit
+  EDIT_STATUS_OPTIONS = ['new', 'accepted', 'closed', 'irrelevant']
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Versioning
@@ -25,7 +26,7 @@ class Edit
   field :editor_notes
   field :distance, :type => Integer, :default => 0
   field :status, :default => 'new'
-  validates :status, :inclusion => ['new', 'good', 'bad', 'neutral']
+  validates :status, :inclusion => EDIT_STATUS_OPTIONS
 
   before_validation do
     self.account_id = page.account_id unless account_id || page.nil?

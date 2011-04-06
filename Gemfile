@@ -8,6 +8,7 @@ gem 'sprockets', :git => 'https://github.com/sstephenson/sprockets.git', :branch
 gem 'coffee-script'
 gem 'transmogrify'
 gem 'compass', '0.11.beta.2'
+gem 'rmagick'
 
 #middleware
 gem 'cloudseed'
@@ -34,7 +35,8 @@ end
 
 group :development do
   gem 'wirble'
-  gem 'spork', '~> 0.9.0.rc'
+  gem 'spork', '>= 0.9.0.rc4'
+  gem 'growl'
 
   gem 'guard-rspec'
   gem 'guard-spork'

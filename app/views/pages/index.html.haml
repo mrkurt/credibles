@@ -1,3 +1,3 @@
 %ul
-  -Page.all.each do |p|
+  -@accounts.map(&:pages).flatten.each do |p|
     %li= link_to p.url, p

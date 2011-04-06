@@ -11,5 +11,6 @@ describe EditorMailer do
     mail.should_not be_nil
     mail.subject.should include("Corrections for #{edit.url}")
     mail.body.should include('+best+')
+    mail.body.should include('http://credibles.test/session/new')
   end
 end

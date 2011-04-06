@@ -1,0 +1,5 @@
+{
+  "type" : "update",
+  "html" : <%=raw render(:partial => 'edits/row.html', :locals => {:row => @edit}).to_json %>,
+  "changes" : <%=raw @edit.previous_changes.reject{|k,v| k == 'versions'}.to_json %>
+}

@@ -2,6 +2,11 @@
 %head
   %title copypasta: reader powered edits
   =stylesheet_link_tag 'app'
+  %noscript
+    %style{:type => 'text/css'}
+      :plain
+        .no-js{ display: auto; }
+        .js{ display: none !important; }
   :javascript
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-20906606-1']);
@@ -13,17 +18,10 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 %body
-  #container
+  #container{ :class => (yield :page_type).strip }
     %h1#logo
       %span copypasta
     #content
       =yield
-      =javascript_include_tag 'jquery-1.4.4.min'
-      =javascript_include_tag 'application'
-      #copy-pasta-button= image_tag "button-light.png", :alt => 'Suggest changes'
-      :plain
-        <script type="text/javascript">
-          copypasta_content_selector = '#content';
-          copypasta_account_id = '9';
-          #{yield :button_options }</script>
-      %script{:type => 'text/javascript', :src => '/javascripts/copypasta.js'}
+      =javascript_include_tag 'jquery-1.5.1'
+      =javascript_include_tag 'app'
